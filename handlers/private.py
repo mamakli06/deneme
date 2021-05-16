@@ -23,7 +23,7 @@ Regrards [MAMAKLİBOT](https://t.me/mamaklichannnel)
             [
                 [
                     InlineKeyboardButton(
-                        "🛠 DEPLOY LINK🛠", url= vermicem😂😂😂 )
+                        "🛠 DEPLOY LINK🛠", url="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme&template=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme")
                   ],[
                     InlineKeyboardButton(
                         "💬 Group", url="https://t.me/mamaklininmekani"
