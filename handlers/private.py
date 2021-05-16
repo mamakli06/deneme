@@ -10,12 +10,10 @@ from helpers.filters import other_filters2
 async def start(_, message: Message):
     await message.reply_sticker("CAACAgQAAx0CTv65QgABBfJlYF6VCrGMm6OJ23AxHmD6qUSWESsAAhoQAAKm8XEeD5nrjz5IJFYeBA")
     await message.reply_text(
-        f"""**Dear {message.from_user.first_name}!
-😁 I am MAMAKLİ Music Player. 
-🥳 I can play music in your Telegram Group's Voice Chat😉
-Developed by ⚡ @Sendenolmazbiyoll ⚡
-My commands - /oynat, /bitir, /atla, /duraklat, /devam, which work in grp
-Thanks for using .
+        f"""**MERHABA BEN{message.from_user.first_name}!
+😁 GARDAS BEN MÜZİK BOTUYUM 
+SAHİBİM ⚡ @Sendenolmazbiyoll ⚡
+KOMUTLAR - /oynat, /bitir, /atla, /duraklat, /devam, bozmayın beni bozarım sizi kanalıma gelin akıllı olun .
 Regrards [MAMAKLİBOT](https://t.me/mamaklichannnel)
 **
         """,
