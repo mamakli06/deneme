@@ -18,7 +18,7 @@ async def help_(client: Client, message: Message):
 - `/bitir` müzik biter
 - `/duraklat` durdurur
 - `/devam` devam ettirir anlatırken yoruldum. 
-- Inline search is also supported.""")
+- bilmem anladinmi.""")
 
 @Client.on_message(
     filters.command("help")
@@ -35,4 +35,4 @@ async def help(client: Client, message: Message):
 - `/bitir` müzik biter
 - `/duraklat` durdurur
 - `/devam` devam ettirir anlatırken yoruldum. 
-- Inline search is also supported.""")
+- Bilmem anladinmi.""")
