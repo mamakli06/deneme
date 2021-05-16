@@ -21,17 +21,17 @@ Regrards [MAMAKLİBOT](https://t.me/mamaklichannnel)
             [
                 [
                     InlineKeyboardButton(
-                        "🛠 DEPLOY LINK🛠", url="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme&template=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme")
+                        "🛠 Uygulama linki🛠", url="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme&template=https%3A%2F%2Fgithub.com%2Fmamakli06%2Fdeneme")
                   ],[
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/mamaklininmekani"
+                        "💬 Grubum", url="https://t.me/mamaklininmekani"
                     ),
                     InlineKeyboardButton(
-                        "🔊 Channel", url="https://t.me/mamaklichannnel"
+                        "🔊 Kanalım", url="https://t.me/mamaklichannnel"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "➕ BENİ Bİ GRUBA AL ➕", url="https://t.me/mamaklininmekani?startgroup=true"
+                        "➕ BENİ GRUBUNA AL ➕", url="https://t.me/mamaklininmekani?startgroup=true"
                     )]
             ]
         ),
@@ -45,7 +45,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🔊 Channel", url="https://t.me/mamaklichannnel")
+                        "🔊 Kanalım", url="https://t.me/mamaklichannnel")
                 ]
             ]
         )
