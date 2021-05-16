@@ -1,1 +1,0 @@
-Selamün aleyküm hayırlı işler
