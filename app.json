@@ -11,31 +11,31 @@
     "stack": "container",
     "env": {
       "API_ID": {
-        "description": "Get this value from my.telegram.org!",
+        "description": "bu sitedeki şeyin iste my.telegram.org!",
         "value": ""
       },
       "API_HASH": {
-        "description": "Get this value from my.telegram.org! ",
+        "description": "bu sitede emmi my.telegram.org! ",
         "value": ""
       },
       "SESSION_NAME": {
-        "description": "Get this value only from GİT REPLİTE AL",
+        "description": "GİT REPLİTE AL",
         "value": ""
       },
       "BOT_TOKEN": {
-        "description": " Make a bot at http://telegram.dog/BotFather and get the token of your bot.",
+        "description": "bot olusturdun ya kardeş botfatherdeki kodu istiyor.",
         "value": ""
       },
       "BOT_NAME": {
-        "description": "Your Bot Name. By default it is MAMAKLİ",
+        "description": "Bota diyor isim koy mesela MAMAKLİBOT",
         "value": "MAMAKLİBOT"
       },
       "SUDO_USERS": {
-        "description": "List of ID of those who can pause, stop and clear queue,separated by space.",
+        "description": "Roseyi bul /id yap çıkan numarayı at diyor",
         "value": ""
       },
       "DURATION_LIMIT": {
-        "description": "Maximum duration of songs that users can request(in minutes).",
+        "description": "en fazla kaç dakikalık müzik oynatsin diyor 30 dan fazla yapma",
         "value": "10",
         "required": false
       }
