@@ -67,6 +67,30 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.write(await resp.read())
                 await f.close()
 
+    image1 = Image.open("./background.png")
+    image2 = Image.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGm6RllVjNgJmKquIMFW6qz_4ubPmxvj-tjw&usqp=CAU")
+    image3 = changeImageSize(1280, 720, image1)
+    image4 = changeImageSize(1280, 720, image2)
+    image5 = image3.convert("RGBA")
+    image6 = image4.convert("RGBA")
+    Image.alpha_composite(image5, image6).save("temp.png")
+    img = Image.open("temp.png")
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("Mamaklı'nın/font.otf", 32)
+    draw.text((190, 550), f"Title: {title}", (255, 255, 255), font=font)
+    draw.text(
+        (190, 590), f"Duration: {duration}", (255, 255, 255), font=font
+    )
+    draw.text((190, 630), f"Views: {views}", (255, 255, 255), font=font)
+    draw.text((190, 670),
+        f"Added By: {requested_by}",
+        (255, 255, 255),
+        font=font,
+    )
+    img.save("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
+    os.remove("temp.png")
+    os.remove("background.png")
+
 @Client.on_message(command("play") & other_filters)
 @errors
 async def play(_, message: Message):
@@ -211,19 +235,19 @@ async def play(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo="final.png", 
+        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU", 
         caption=f"**⭐ MAMAKLİBOT ⭐**: #️⃣ LA SIRAYA ALDİNDA İNŞALLAH DİNLERSİN {position}!",
         reply_markup=keyboard)
-        os.remove("final.png")
+        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-        photo="final.png",
+        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU",
         reply_markup=keyboard,
         caption="**⭐ MAMAKLİBOT ⭐**: ▶️ SESE GEL DİNLE LAN {} via [YouTube](https://t.me/KINGBOTOFFICIAL)".format(
         message.from_user.mention()
         ),
     )
-        os.remove("final.png")
+        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
         return await lel.delete()
