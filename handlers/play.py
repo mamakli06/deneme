@@ -63,6 +63,7 @@ async def oynat(_, message: Message):
         await lel.edit(f"**{bn} :-** #️⃣ sıraya aldım inşallah din len ha #{position} !")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        reply_markup=keyboard,
         caption="▶️ müzik çalıyor sese gel... \n** anladın :-** {}!".format(
         message.from_user.mention()
         ),
@@ -72,7 +73,7 @@ async def oynat(_, message: Message):
 
 @Client.on_message(command("çal") & other_filters)
 @errors
-async def çal(_, message: Message):
+async def oynat(_, message: Message):
 
     lel = await message.reply(f"**{bn} :-** 🔎 ariyom la...")
     sender_id = message.from_user.id
