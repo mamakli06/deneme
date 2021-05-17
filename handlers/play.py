@@ -8,7 +8,7 @@ import callsmusic
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, PLAY_PIC
+from config import BOT_NAME as bn, DURATION_LIMIT
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
@@ -27,7 +27,6 @@ async def oynat(_, message: Message):
     lel = await message.reply(f"**{bn} :-** 🔄 ŞARKI ACİLİYOR HA...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
-    hell_pic = PLAY_PIC
 
     keyboard = InlineKeyboardMarkup(
             [
@@ -64,9 +63,6 @@ async def oynat(_, message: Message):
         await lel.edit(f"**{bn} :-** #️⃣ sıraya aldım inşallah din len ha #{position} !")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_photo(
-        photo=hell_pic,
-        reply_markup=keyboard,
         caption="▶️ müzik çalıyor sese gel... \n** anladın :-** {}!".format(
         message.from_user.mention()
         ),
