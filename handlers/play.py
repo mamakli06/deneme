@@ -31,10 +31,6 @@ from PIL import ImageFont
 from PIL import ImageDraw
 
 
-def transcode(filename):
-    ffmpeg.input(filename).output("input.raw", format='s16le', acodec='pcm_s16le', ac=2, ar='48k').overwrite_output().run() 
-    os.remove(filename)
-
 # Convert seconds to mm:ss
 def convert_seconds(seconds):
     seconds = seconds % (24 * 3600)
