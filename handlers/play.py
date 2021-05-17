@@ -87,7 +87,6 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
         (255, 255, 255),
         font=font,
     )
-    img.save("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
     os.remove("temp.png")
     os.remove("background.png")
 
@@ -233,21 +232,14 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
   
     if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = await queues.put(message.chat.id, file=file_path)
-        await message.reply_photo(
-        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU", 
+        position = await queues.put(message.chat.id, file=file_path) 
         caption=f"**⭐ MAMAKLİBOT ⭐**: #️⃣ LA SIRAYA ALDİNDA İNŞALLAH DİNLERSİN {position}!",
-        reply_markup=keyboard)
-        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
-        return await lel.delete()
+        
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_photo(
-        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU",
-        reply_markup=keyboard,
+
         caption="**⭐ MAMAKLİBOT ⭐**: ▶️ SESE GEL DİNLE LAN {} via [YouTube](https://t.me/KINGBOTOFFICIAL)".format(
         message.from_user.mention()
         ),
     )
-        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrT40g0B7wdX60KF3EEnzImKQZh8yXqvZ0uw&usqp=CAU")
         return await lel.delete()
