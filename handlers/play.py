@@ -67,7 +67,7 @@ async def oynat(_, message: Message):
         caption="▶️ müzik çalıyor sese gel... \n** anladın :-** {}!".format(
         message.from_user.mention()
         ),
-    )
+    
         return await lel.delete()
 
 
