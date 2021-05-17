@@ -31,6 +31,10 @@ from PIL import ImageFont
 from PIL import ImageDraw
 
 
+def transcode(filename):
+    ffmpeg.input(filename).output("input.raw", format='s16le', acodec='pcm_s16le', ac=2, ar='48k').overwrite_output().run() 
+    os.remove(filename)
+
 # Convert seconds to mm:ss
 def convert_seconds(seconds):
     seconds = seconds % (24 * 3600)
@@ -206,19 +210,19 @@ async def oynat(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XRxDK5V6kvWx8XcTjhYP0Iji1vs-SG9D1Q&usqp=CAU", 
+        photo="final.png", 
         caption=f"**⭐MAMAKLİBOT⭐**: #️⃣ SİRAYA ALDİM LA {position}!",
         reply_markup=keyboard)
-        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XRxDK5V6kvWx8XcTjhYP0Iji1vs-SG9D1Q&usqp=CAU")
+        os.remove("final.png")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-        photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XRxDK5V6kvWx8XcTjhYP0Iji1vs-SG9D1Q&usqp=CAU",
-        reply_markup=keyboard,
+        photo="final.png",
+        reply_markupkeyboard,
         caption="**⭐ MAMAKLİBOT ⭐**: ▶️ müzik çalınıyor ... Song requested by {} via [YouTube](https://t.me/KINGBOTOFFICIAL)".format(
         message.from_user.mention()
         ),
     )
-        os.remove("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XRxDK5V6kvWx8XcTjhYP0Iji1vs-SG9D1Q&usqp=CAU")
+        os.remove("final.png")
         return await lel.delete()
