@@ -209,20 +209,15 @@ async def oynat(_, message: Message):
   
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        await message.reply_photo(
-        photo="final.png", 
         caption=f"**⭐MAMAKLİBOT⭐**: #️⃣ SİRAYA ALDİM LA {position}!",
         reply_markup=keyboard)
-        os.remove("final.png")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_photo(
-        photo="final.png",
         reply_markup=keyboard,
         caption="**⭐ MAMAKLİBOT ⭐**: ▶️ müzik çalınıyor ... Song requested by {} via [YouTube](https://t.me/KINGBOTOFFICIAL)".format(
         message.from_user.mention()
         ),
     )
-        os.remove("final.png")
+        
         return await lel.delete()
