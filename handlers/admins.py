@@ -39,7 +39,7 @@ async def devam(_, message: Message):
         await message.reply_text("**⭐ MAMAKLİBOT⭐**: ⏸ çalmaya devam mamakliya selam!")
 
 
-@Client.on_message(command("son") & other_filters)
+@Client.on_message(command("bitir") & other_filters)
 @errors
 @authorized_users_only
 async def bitir(_, message: Message):
