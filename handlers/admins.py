@@ -28,42 +28,42 @@ async def update_admin(client, message):
 
 
 
-@Client.on_message(command("pause") & other_filters)
+@Client.on_message(command("duraklat") & other_filters)
 @errors
 @authorized_users_only
-async def pause(_, message: Message):
+async def duraklat(_, message: Message):
     if (
             message.chat.id not in callsmusic.pytgcalls.active_calls
     ) or (
             callsmusic.pytgcalls.active_calls[message.chat.id] == 'paused'
     ):
-        await message.reply_text("**⭐KINGBOT⭐**:❗ Nothing is playing!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**:❗ NE yapmaya calisiyon!")
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: ▶️ Paused!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**: ▶️ bı sigara içip geleyim!")
 
 
-@Client.on_message(command("resume") & other_filters)
+@Client.on_message(command("devam") & other_filters)
 @errors
 @authorized_users_only
-async def resume(_, message: Message):
+async def devam(_, message: Message):
     if (
             message.chat.id not in callsmusic.pytgcalls.active_calls
     ) or (
             callsmusic.pytgcalls.active_calls[message.chat.id] == 'playing'
     ):
-        await message.reply_text("**⭐KINGBOT⭐**: 😜 Nothing is paused!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**: 😜 neye devam gardassss!")
     else:
         callsmusic.pytgcalls.resume_stream(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: ⏸ Resumed!!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**: ⏸ devam ediyorum 😘!!")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(command("son") & other_filters)
 @errors
 @authorized_users_only
-async def stop(_, message: Message):
+async def bitir(_, message: Message):
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("**⭐KINGBOT⭐**: 😅 Nothing is streaming!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**: 😅 YA BOS YAPMA!")
     else:
         try:
             callsmusic.queues.clear(message.chat.id)
@@ -71,16 +71,16 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: 🙇Stopped streaming!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**: 🙇YETER LA YORULDUM!")
 
 
-@Client.on_message(command("skip") & other_filters)
+@Client.on_message(command("atla") & other_filters)
 @errors
 @authorized_users_only
-async def skip(_, message: Message):
+async def atla(_, message: Message):
     global que
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("**⭐KINGBOT⭐**:❗ Nothing is playing boss to skip!! I think its last song! or not playing song!!")
+        await message.reply_text("**⭐ MAMAKLİBOT⭐**:❗ bunu burdan alın yoksa bozacak beni !!")
     else:
         callsmusic.queues.task_done(message.chat.id)
 
@@ -98,7 +98,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"- ♂️ Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**")
+    await message.reply_text(f"- ♂️ sonraki şarkı ya geçtim ha **{skip[0]}**\n- bunuda atla soverim **{qeue[0][0]}**")
 
 
 @Client.on_message(
@@ -107,4 +107,4 @@ async def skip(_, message: Message):
 @errors
 async def admincache(client, message: Message):
     set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
-    #await message.reply_text("**⭐KINGBOT⭐**: Admin cache refreshed!")
+    #await message.reply_text("**⭐ MAMAKLİBOT⭐**: Admin cache refreshed!")
