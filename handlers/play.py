@@ -15,16 +15,16 @@ from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command("oynat") & other_filters)
 @errors
-async def play(_, message: Message):
+async def oynat(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"**{bn} :-** 😕 Videos longer than {DURATION_LIMIT} minute(s) aren't allowed!\n🤐 The provided video is {audio.duration / 60} minute(s)"
+                f"**{bn} :-** 😕 Gardas bi yanlisin var {DURATION_LIMIT} minute(s) olmadi!\n🤐 bilmiyosan elleme {audio.duration / 60} minute(s)"
             )
 
         file_name = get_file_name(audio)
@@ -35,10 +35,10 @@ async def play(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await message.reply_text(f"**{bn} :-** 🙄 You did not give me anything to play!")
+        return await message.reply_text(f"**{bn} :-** 🙄 salak bebe bilmiyon dokunma bari!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
-        await message.reply_text(f"**{bn} :-** 😉 Queued at position #{await callsmusic.queues.put(message.chat.id, file_path=file_path)} !")
+        await message.reply_text(f"**{bn} :-** 😉 siraya koydum bebegim #{await callsmusic.queues.put(message.chat.id, file_path=file_path)} !")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_text(f"**{bn} :-** 🥳 Playing...")
+        await message.reply_text(f"**{bn} :-** 🥳 caliyom iste sanki babasinin usagi var...")
